@@ -44,8 +44,9 @@ server <- function(input, output, session){
                 ungroup() %>%
                 mutate(Tecnologia = forcats::fct_relevel(Tecnologia, new_tec_level)) %>%
                 ggplot(aes(x = Fecha, y = Generacion_MWh, fill = Tecnologia)) +
-                geom_bar(stat = 'identity', position = 'stack') +
-                scale_fill_manual(values = tec_color)
+                geom_area(alpha = 0.7) +
+                scale_fill_manual(values = tec_color) +
+                theme(legend.position = 'bottom')
         )
     })
     
@@ -55,7 +56,8 @@ server <- function(input, output, session){
                 group_by(Fecha, Subsistema) %>%
                 summarise(Generacion_MWh = sum(Generacion_MWh)) %>%
                 ggplot(aes(x = Fecha, y = Generacion_MWh, fill = as.factor(Subsistema))) +
-                geom_bar(stat = 'identity', position = 'stack')
+                geom_area(alpha = 0.7) +
+                theme(legend.position = 'bottom')
         )
     })
     
