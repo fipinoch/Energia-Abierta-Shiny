@@ -3,7 +3,7 @@ library(data.table)
 
 ## GET DATA FROM 2014-01 to 2018-09
 get_data <- function(ano = 2018, mes = 2){
-    auth_key <- 'a2ba0650a770ccb214e6dd12488600db6e82da1a'
+    auth_key <- 'YOUR_API_KEY'
     url_csv <- 'http://cne.cloudapi.junar.com/api/v2/datastreams/GENER-BRUTA-HORAR-SEN/data.csv/?'
     if(mes < 10){
         mes_aux <- paste0('0', mes)
