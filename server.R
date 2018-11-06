@@ -55,7 +55,7 @@ server <- function(input, output, session){
             df() %>%
                 group_by(Fecha, Subsistema) %>%
                 summarise(Generacion_MWh = sum(Generacion_MWh)) %>%
-                ggplot(aes(x = Fecha, y = Generacion_MWh, fill = as.factor(Subsistema))) +
+                ggplot(aes(x = Fecha, y = Generacion_MWh, fill = Subsistema)) +
                 geom_area(alpha = 0.7) +
                 theme(legend.position = 'bottom')
         )
